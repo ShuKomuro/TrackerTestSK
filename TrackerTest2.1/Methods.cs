@@ -71,7 +71,7 @@ namespace TrackerTest2._1
         public void timeOfBreak()
         {
             driver.FindElement(By.Id("btnBreakIn")).Click();
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(60000);
             //60000 - 1 minuto
             //180000 - 3 minuto
             driver.FindElement(By.Id("btnBreakOut")).Click();
@@ -81,6 +81,7 @@ namespace TrackerTest2._1
         {
             driver.FindElement(By.Id("TopMenu_lstDEHome")).Click();
             SelectElement selBoxDE = new SelectElement(driver.FindElement(By.Id("ddlOperationalType")));
+  
             selBoxDE.SelectByText("DE");
 
             selBoxDE = new SelectElement(driver.FindElement(By.Id("ddlProject")));
@@ -106,7 +107,7 @@ namespace TrackerTest2._1
             int attempts = 0;
             bool flag = false;
             SelectElement sel = new SelectElement(driver.FindElement(By.Id("ddlProject")));
-            while (attempts < 5)
+            while (attempts <= 10)
             {
                 try
                 {

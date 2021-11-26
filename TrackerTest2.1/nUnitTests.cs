@@ -15,7 +15,7 @@ namespace TrackerTest2._1
     class nUnitTests
     {
         static IWebDriver driver;
-        int inicio = 41;
+        int inicio = 11;
         int total= 10;
         Methods met;
 
@@ -29,7 +29,7 @@ namespace TrackerTest2._1
             driver = new InternetExplorerDriver(options);
             driver.Manage().Cookies.DeleteAllCookies();
             driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
             driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(60);
             driver.Url = "http://indftp.indconsulting.com/ProductionTrackerUAT/Login.aspx";
@@ -121,6 +121,7 @@ namespace TrackerTest2._1
         [Test]
         public void Test_05_AddImagesWithBreak()
         {
+            Test_01_LoginDE();
             String init_id = met.idFormat();
             String tr_id = met.Add_Image_Menu_DE();
 
@@ -177,6 +178,7 @@ namespace TrackerTest2._1
             Assert.AreEqual(comp, "You must select a Project and operational type you going to work with before start with your production.");
         }
 
+        [Test]
         public void Test_08_Query_Process_QC()
         {
             Test_06_LoginQC();
